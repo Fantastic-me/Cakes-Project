@@ -1,0 +1,215 @@
+### all cake list api
+
+GET http://127.0.0.1:8000/cakes/
+Authorization: Basic user user
+
+### creating a cake
+
+POST http://127.0.0.1:8000/cakes/
+# Authorization: Basic admin admin
+# Authorization: Token 50623d831a3facf1531dfa5faba7366058dbbe99
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzkzNzY5NzI2LCJpYXQiOjE3OTMzMzc3MjYsImp0aSI6IjJjNDU3YmQ0M2UyNDQ1M2U4MWQwNTdjOGZiMDE1MmE2IiwidXNlcl9pZCI6IjEifQ.aRlsGtdPL9iYQjWjhE3yJAQU8HLgFOG2ifYE4OfofBs
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+Chocolate Cake
+--abc
+Content-Disposition: form-data; name="description"
+
+Rich chocolate cake with chocolate frosting.
+--abc
+Content-Disposition: form-data; name="photo"; filename="image.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\Dell\OneDrive\Desktop\luminar\django rest projects\Cakes Project\image.jpg
+--abc
+Content-Disposition: form-data; name="category"
+
+1
+--abc
+Content-Disposition: form-data; name="shape"
+
+1
+--abc
+Content-Disposition: form-data; name="weight"
+
+1
+--abc
+Content-Disposition: form-data; name="price"
+
+1250
+--abc--
+
+### cake retrieve api
+
+GET http://127.0.0.1:8000/cakes/4/
+Authorization: Basic user user
+
+### updating a cake
+
+PATCH http://127.0.0.1:8000/cakes/1/
+Content-Type: multipart/form-data; boundary=abc
+# Authorization: Basic admin admin
+
+--abc
+Content-Disposition: form-data; name="name"
+
+Chocolate Cake
+--abc--
+
+### cake delete api
+
+DELETE http://127.0.0.1:8000/cakes/1/
+Authorization: Basic admin admin
+
+
+
+
+### all category list api
+
+GET http://127.0.0.1:8000/category/
+# Authorization: Basic user user
+
+### creating a category
+
+POST http://127.0.0.1:8000/category/
+Content-Type: multipart/form-data; boundary=abc
+Authorization: Basic admin admin
+
+--abc
+Content-Disposition: form-data; name="name"
+
+Christmas Cake
+--abc
+
+# Content-Disposition: form-data; name="category"
+
+### category retrieve api
+
+GET http://127.0.0.1:8000/category/1/
+# Authorization: Basic user user
+
+### updating a category
+
+PATCH http://127.0.0.1:8000/category/1/
+Content-Type: multipart/form-data; boundary=abc
+Authorization: Basic admin admin
+
+--abc
+Content-Disposition: form-data; name="name"
+
+Funeral Cake
+--abc--
+
+### category delete api
+
+DELETE http://127.0.0.1:8000/category/1/
+Authorization: Basic admin admin
+
+
+### all shape list api
+
+GET http://127.0.0.1:8000/shape/
+# Authorization: Basic user user
+
+### creating a shape
+
+POST http://127.0.0.1:8000/shape/
+Content-Type: multipart/form-data; boundary=abc
+Authorization: Basic admin admin
+
+--abc
+Content-Disposition: form-data; name="name"
+
+Heart
+--abc
+
+# Content-Disposition: form-data; name="category"
+
+### shape retrieve api
+
+GET http://127.0.0.1:8000/shape/1/
+# Authorization: Basic user user
+
+### updating a shape
+
+PATCH http://127.0.0.1:8000/shape/1/
+Content-Type: multipart/form-data; boundary=abc
+Authorization: Basic admin admin
+
+--abc
+Content-Disposition: form-data; name="name"
+
+Diamond
+--abc--
+
+### shape delete api
+
+DELETE http://127.0.0.1:8000/shape/1/
+Authorization: Basic admin admin
+
+
+### all weight list api
+
+GET http://127.0.0.1:8000/weight/
+# Authorization: Basic user user
+
+### creating a weight
+
+POST http://127.0.0.1:8000/weight/
+Content-Type: multipart/form-data; boundary=abc
+Authorization: Basic admin admin
+
+--abc
+Content-Disposition: form-data; name="name"
+
+3kg
+--abc
+
+# Content-Disposition: form-data; name="category"
+
+### weight retrieve api
+
+GET http://127.0.0.1:8000/weight/1/
+# Authorization: Basic user user
+
+### updating a weight
+
+PATCH http://127.0.0.1:8000/weight/1/
+Content-Type: multipart/form-data; boundary=abc
+Authorization: Basic admin admin
+
+--abc
+Content-Disposition: form-data; name="name"
+
+5kg
+--abc--
+
+### weight delete api
+
+DELETE http://127.0.0.1:8000/weight/1/
+Authorization: Basic admin admin
+
+### login api
+
+POST http://127.0.0.1:8000/login/
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "password":"admin"
+}
+
+### register api
+
+POST http://127.0.0.1:8000/register/
+Content-Type: application/json
+
+{
+    "username":"pushpa123@mailinator.com",
+    "first_name":"Pushpa Sreevalli",
+    "role":"User",
+    "password":"Pushpa123"
+}
