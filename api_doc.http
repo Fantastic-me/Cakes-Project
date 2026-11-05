@@ -3,12 +3,21 @@
 GET http://127.0.0.1:8000/cakes/
 Authorization: Basic user user
 
-### creating a cake
+### Login
+
+POST http://127.0.0.1:8000/login/
+Content-Type: application/json
+Accept: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+### Creating a Cake
 
 POST http://127.0.0.1:8000/cakes/
-# Authorization: Basic admin admin
-# Authorization: Token 50623d831a3facf1531dfa5faba7366058dbbe99
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzkzNzY5NzI2LCJpYXQiOjE3OTMzMzc3MjYsImp0aSI6IjJjNDU3YmQ0M2UyNDQ1M2U4MWQwNTdjOGZiMDE1MmE2IiwidXNlcl9pZCI6IjEifQ.aRlsGtdPL9iYQjWjhE3yJAQU8HLgFOG2ifYE4OfofBs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk0MjMzMDY2LCJpYXQiOjE3OTM4MDEwNjYsImp0aSI6IjliNzI3ZDMwMDBlNTQ3ZjZhYjI0ZTJlN2Y5YTFmN2ZmIiwidXNlcl9pZCI6IjEifQ.vY-RGZbzm-Px60BHNoOfrSPPGWli9RHrXBylQCPTBgQ
 Content-Type: multipart/form-data; boundary=abc
 
 --abc
@@ -44,14 +53,14 @@ Content-Disposition: form-data; name="price"
 
 ### cake retrieve api
 
-GET http://127.0.0.1:8000/cakes/4/
+GET http://127.0.0.1:8000/cakes/1/
 Authorization: Basic user user
 
 ### updating a cake
 
 PATCH http://127.0.0.1:8000/cakes/1/
 Content-Type: multipart/form-data; boundary=abc
-# Authorization: Basic admin admin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk0MjM0Mjk0LCJpYXQiOjE3OTM4MDIyOTQsImp0aSI6IjBiYjkyYzQ4ZDRhNTQxMjg4MTVjMjU0ODU4MDk3ZjNhIiwidXNlcl9pZCI6IjEifQ.SqEKPaaUa1L5JU1hKqXcsFSK2WrubPJCVYHeZULmLDM
 
 --abc
 Content-Disposition: form-data; name="name"
